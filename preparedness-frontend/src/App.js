@@ -1,20 +1,38 @@
-import React from "react"
+import React, {useState} from "react"
 import { Button, Input, Label } from "reactstrap"
 import ModalComponent from "./components/ModalComponent"
 import "./App.css"
 
 const App = () => {
+  const [userInput, setUserInput] = useState("")
+  const handleChange = (e) => {
+    // .target.value to extract user input
+    setUserInput(e.target.value)
+  }
+  const reset = (e) => {
+    setUserInput("")
+  }
+    // State variable for modal being open or close. Beginning state false (closed)
+    const [modal, setModal] = useState(false)
+    // Toggle funciton updates modal state to opposite of starting value when invoked
+    const toggle = (props) => setModal(!modal)
   return (
     <div className="entire-content">
-      <h1>Preparedness Assessment</h1>
+      <h1 className="title">Preparedness Assessment</h1>
       <div className="form">
+        <div className="below-title">
         <div className="input">
           <Label for="name">Enter your name</Label>
-          <Input />
         </div>
-        <Button>Click Me</Button>
-        <Button>Reset</Button>
-        <ModalComponent />
+        <div className="user-input">
+          <Input type="text" value={userInput} onChange={handleChange} />
+        </div>
+        <div className="buttons">
+        <Button className="button" onClick={toggle}>Click Me</Button>
+        <Button className="button" onClick={reset}>Reset</Button>
+        </div>
+        <ModalComponent isOpen={modal} name={userInput} toggle={toggle}/>
+        </div>
       </div>
     </div>
   )
