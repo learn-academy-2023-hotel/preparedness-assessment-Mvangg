@@ -4,10 +4,13 @@ body{
 .entire-content{
     text-align: center;
 }
-.title{
+.main-header{
     color: white;
     font-size: 50px;
     text-align: center;
+}
+.name-title{
+   margin-top: 50px;
 }
 .input{
     color: white;
@@ -27,6 +30,12 @@ body{
     padding-top: 6px;
     padding-bottom: 6px
 }
+.button-container{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+}
 .button{
     background-color: #0dcaf0 !important;
     color: white;
@@ -34,13 +43,4 @@ body{
     margin-right: 20px;
     width: 100px;
     margin-top: 20px;
-}
-.buttons{
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin: auto;
-}
-.below-title{
-   margin-top: 50px;
 }
